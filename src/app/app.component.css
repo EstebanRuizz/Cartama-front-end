@@ -1,0 +1,25 @@
+a{
+  margin: 3px;
+  text-decoration: none;
+  color: #151515;
+  font-weight: bold;
+  border: solid 1px rgb(140, 255, 102);
+  padding: 4px;
+}
+a:hover{
+  background-color: aquamarine;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

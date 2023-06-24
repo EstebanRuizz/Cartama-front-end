@@ -12,6 +12,5 @@ export class UserService {
       { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
     ];
   }
-
   // Implement other methods like createUser, updateUser, and deleteUser
 }
