@@ -1,5 +1,17 @@
+<!--
 <a routerLink="/user-list">user list</a>
 <a routerLink="/user-form">user form</a>
+-->
+<main class="main-container">
+  <h3>Parque Educativo Cartama</h3>
+  <p>Un encuentro de saberes</p>
+  <!-- <a routerLink="/app-signin">app signin</a>
+  <a routerLink="/app-signup">app signup</a>| -->
+  <h3>Bienvenido a la página de inicio</h3>
+  <button (click)="renderSignupForm()">Crear cuenta</button>
+  <button (click)="renderSigninForm()">Ingresar</button>
+</main>
 
-
+<!-- <app-signin></app-signin>
+<app-signup></app-signup> -->
 <router-outlet></router-outlet>
