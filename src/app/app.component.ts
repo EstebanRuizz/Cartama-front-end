@@ -1,26 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'hr-frontend';
-
-  constructor(private router: Router) { }
-
-  ngOnInit() {}
-
-  renderSignupForm() {
-    console.log("pick");
-
-    this.router.navigate(['/user-form']);
-  }
-
-
-  renderSigninForm() {
-    this.router.navigate(['/app-signin']);
-  }
 }

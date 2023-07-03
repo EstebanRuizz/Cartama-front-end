@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserFormComponent } from './presentation/user/user-form/user-form.component';
-import { UserListComponent } from './presentation/user/user-list/user-list.component';
-import { SigninComponent } from './presentation/Auth/signin/signin.component';
-import { SignupComponent } from './presentation/Auth/signup/signup.component';
+import { AppComponent } from './app.component';
+import { LandingComponent } from './presentation/shared/landing/landing.component';
 
 const routes: Routes = [
-  { path: 'user-form', component: UserFormComponent },
-  { path: 'user-list', component: UserListComponent },
-  { path: 'app-signin', component: SigninComponent },
-  { path: 'app-signup', loadChildren: () => import('./presentation/Auth/auth.module').then(module => module.AuthModule) },
-  // { path: 'app-signup', component: SignupComponent },
-  // { path: '', redirectTo: 'user-list', pathMatch: 'full' }, // Redireccionar a la lista de usuarios por defecto
-  // Otras rutas si es necesario
+  { path: '', component: LandingComponent },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./presentation/auth/auth.module').then((m) => m.AuthModule),
+  },
+  { path: 'landing', component: LandingComponent },
+  { path: '**', component: LandingComponent },
 ];
 
 @NgModule({

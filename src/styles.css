@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn-setting {
+  width: 90px;
+  height: 50px;
+  margin: 5px 15px 2px 15px;
+  padding: 25px 0px 0px 0px;
+  border: none;
+  border-radius: 5px;
+  background-size: 25px;
+  background-position: top;
+  background-position-y: 5px;
+  background-repeat: no-repeat;
+  background-color: inherit;
+  background-color: rgb(255, 255, 255);
+}
+.btn-setting:hover {
+  background-color: aquamarine;
+  opacity: 80%;
+}

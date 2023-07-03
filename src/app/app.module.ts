@@ -7,13 +7,13 @@ import { UserListComponent } from './presentation/user/user-list/user-list.compo
 import { UserRespository } from './infrastructure/Repository/user/user.repository';
 import { UserService } from './application/Service/userService/user.service';
 import { UserFormComponent } from './presentation/user/user-form/user-form.component';
-import { AuthModule } from './presentation/Auth/auth.module';
-
+import { AuthModule } from './presentation/auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
+
 @NgModule({
-  declarations: [AppComponent, UserListComponent, UserFormComponent],
+  declarations: [AppComponent, UserListComponent, UserFormComponent, ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -13,7 +13,6 @@ export class UserFormComponent {
   };
 
   onSubmit() {
-    // Aquí puedes agregar la lógica para enviar los datos del formulario al servidor
     console.log(this.formData);
   }
 }
