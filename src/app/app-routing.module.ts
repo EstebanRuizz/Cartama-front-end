@@ -7,10 +7,8 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   {
     path: 'auth',
-    loadChildren: () =>
-      import('./presentation/auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('./presentation/auth/auth.module').then((m) => m.AuthModule),
   },
-  { path: 'landing', component: LandingComponent },
   { path: '**', component: LandingComponent },
 ];
 

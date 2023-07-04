@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { UserService } from 'src/app/application/Service/userService/user.service';
 import { ICreateUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
-
+ 
 @Component({
   selector: 'app-singn-up',
   templateUrl: './singn-up.component.html',

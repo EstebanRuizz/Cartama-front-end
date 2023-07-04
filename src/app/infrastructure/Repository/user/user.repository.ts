@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IUserRepository } from '../../../core/IUserRepository/Iuser.repository';
 import { User } from '../../../core/models/user/user.model';
 import { ICreateUserDTO, IListUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
 import { IRepository } from 'src/app/core/IBaseRepository/IRepository';

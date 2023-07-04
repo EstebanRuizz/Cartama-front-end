@@ -8,3 +8,7 @@ export interface IListUserDTO extends User {
 
 export interface ICreateUserDTO
   extends Pick<IListUserDTO, 'email' | 'password'> {}
+
+export interface ILoginUser extends Pick<User, 'email' | 'password'> {}
+
+export interface IResetPassword extends Pick<User, 'email'>{}

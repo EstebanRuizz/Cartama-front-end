@@ -5,3 +5,16 @@ import { IRepository } from '../IBaseRepository/IRepository';
 
 
 export interface IUserRepository extends IRepository<User, ICreateUserDTO> {}
+
+
+
+
+
+
+
+
+
+
+
+
+
