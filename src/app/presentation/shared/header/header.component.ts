@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  fixedHeader = false;
+  onScroll() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.fixedHeader = scrollPosition > 0;
+  }
+
 }

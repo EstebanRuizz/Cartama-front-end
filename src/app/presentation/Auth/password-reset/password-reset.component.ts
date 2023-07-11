@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IResetPassword } from 'src/app/application/DTO/user/IListUserDTO';
-import { AuthService } from 'src/app/application/Service/authService/auth.service';
+import { AuthService } from 'src/app/application/features/authService/auth.service';
 
 @Component({
   selector: 'app-password-reset',
@@ -15,16 +15,14 @@ export class PasswordResetComponent {
   ) {}
 
   userResetPassword: IResetPassword = {
-    email: ''
-  }
+    email: '',
+  };
 
-
-  resetPassword(){console.log(this.userResetPassword)
+  resetPassword() {
+    console.log(this.userResetPassword);
   }
 
   renderSingnInComponent(): void {
     this.router.navigate(['auth', 'singn-in']);
-
   }
-
 }

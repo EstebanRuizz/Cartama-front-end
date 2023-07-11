@@ -1,0 +1,15 @@
+<main *ngFor="let item of publicationList" class="aling">
+  <article class="publication-card">
+    <h3>{{ item.Name }}</h3>
+    <p>
+      {{ item.TypeAliance }} | <i>{{ item.AlianceDate }}</i>
+    </p>
+    <p>{{ item.Description }}</p>
+    <img [src]="item.DocumentRoute" alt="" />
+    <section *ngIf="isEducationType(item)">
+      <button (click)="logElement(item.id)" class="btn-setting">
+        Suscribete
+      </button>
+    </section>
+  </article>
+</main>

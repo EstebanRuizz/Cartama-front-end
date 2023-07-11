@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { UserService } from 'src/app/application/Service/userService/user.service';
+import { UserCommand } from 'src/app/application/features/user/commands/user.command';
 import { ICreateUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
- 
+
 @Component({
   selector: 'app-singn-up',
   templateUrl: './singn-up.component.html',
   styleUrls: ['./singn-up.component.css'],
 })
 export class SingnUpComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userCommand: UserCommand, private router: Router) {}
 
   formData = {
     cedula: '',
@@ -24,9 +24,10 @@ export class SingnUpComponent {
       password: this.formData.password,
     };
 
-    this.userService.CreateUser(newUser).subscribe({
+    this.userCommand.CreateUser(newUser).subscribe({
       next: (response) => {
         console.log(response);
+        this.renderHomeComponent();
       },
       error: (error) => {
         console.error(error);
@@ -37,31 +38,11 @@ export class SingnUpComponent {
   renderLanding(): void {
     this.router.navigate(['landing']);
   }
-
-  /*
-  import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-@Component({
-  selector: 'app-my-component',
-  templateUrl: './my-component.component.html',
-  styleUrls: ['./my-component.component.css']
-})
-export class MyComponent implements OnInit {
-  constructor(private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      // Acceder a los parámetros de la ruta
-      const id = params['id'];
-      const category = params['category'];
-
-      // Hacer algo con los parámetros
-      console.log('ID:', id);
-      console.log('Category:', category);
-    });
+  renderSingIn(): void {
+    this.router.navigate(['auth', 'singn-in']);
   }
-}
 
-  */
+  renderHomeComponent(): void {
+    this.router.navigate(['home', 'publication']);
+  }
 }

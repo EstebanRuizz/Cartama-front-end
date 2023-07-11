@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../../../core/models/user/user.model';
+import { User } from '../../../app/domain/models/user.model';
 import { ICreateUserDTO, IListUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
-import { IRepository } from 'src/app/core/IBaseRepository/IRepository';
+import { IRepository } from 'src/app/persistence/IBaseRepository/IRepository';
 
 @Injectable({
   providedIn: 'root',

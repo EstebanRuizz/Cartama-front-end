@@ -1,0 +1,26 @@
+.nav-var {
+  display: flex;
+  justify-content: space-around;
+  background-color: #151515;
+}
+.nav-var > button {
+  background-color: inherit;
+  color: white;
+  font-size: 12px;
+  margin: 2px;
+}
+.nav-var > button:hover {
+  background-color: rgb(17, 214, 232);
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.icon-Inicio { background-image: url(../../../../assets/images/header/Inicio-Icon.svg); }
+.icon-Educacion { background-image: url(../../../../assets/images/header/Cursos-Icon.svg); }
+.icon-Reservas { background-image: url(../../../../assets/images/header/Reservas-Iconsvg.svg); }
+.icon-Contacto { background-image: url(../../../../assets/images/header/Whatsapp-Icon.svg); }
+.icon-Cartama { background-image: url(../../../../assets/images/header/Catama-Icon.svg); }
+.icon-Usuario { background-image: url(../../../../assets/images/header/Cuenta-Icon.svg); }

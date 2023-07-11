@@ -23,3 +23,21 @@
   background-color: aquamarine;
   opacity: 80%;
 }
+.btn-setting-mobile{
+  width: auro;
+  height: 50px;
+  margin: 0px 1px 0px 1px;
+  padding: 25px 0px 0px 0px;
+  border: none;
+  border-radius: 5px;
+  background-size: 25px;
+  background-position: top;
+  background-position-y: 5px;
+  background-repeat: no-repeat;
+  background-color: inherit;
+  background-color: rgb(255, 255, 255);
+}
+.btn-setting-mobile:hover {
+  background-color: rgb(255, 255, 255);
+  /* opacity: 80%; */
+}

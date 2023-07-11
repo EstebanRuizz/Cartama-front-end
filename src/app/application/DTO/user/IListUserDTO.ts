@@ -1,14 +1,6 @@
-import { User } from 'src/app/core/models/user/user.model';
+import { User } from 'src/app/domain/models/user.model';
 
-export interface IListUserDTO extends User {
-  Id: number;
-  email: string;
-  password: string;
-}
-
-export interface ICreateUserDTO
-  extends Pick<IListUserDTO, 'email' | 'password'> {}
-
+export interface IResetPassword extends Pick<User, 'email'> {}
 export interface ILoginUser extends Pick<User, 'email' | 'password'> {}
-
-export interface IResetPassword extends Pick<User, 'email'>{}
+export interface ICreateUserDTO extends Pick<User, 'email' | 'password'> {}
+export interface IListUserDTO extends Pick<User, 'Id' | 'email' | 'password'> {}

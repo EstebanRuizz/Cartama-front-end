@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ILoginUser } from 'src/app/application/DTO/user/IListUserDTO';
-import { AuthService } from 'src/app/application/Service/authService/auth.service';
+import { AuthService } from 'src/app/application/features/authService/auth.service';
 
 @Component({
   selector: 'app-singn-in',

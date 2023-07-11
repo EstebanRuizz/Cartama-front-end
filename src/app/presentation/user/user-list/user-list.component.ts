@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../../core/models/user/user.model';
-import { UserService } from '../../../application/Service/userService/user.service';
 import { IListUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
+import { UserCommand } from '../../../application/features/user/commands/user.command';
+import { UserQuery } from '../../../application/features/user/queries/UserQuery';
 
 @Component({
   selector: 'app-user-list',
@@ -11,14 +11,17 @@ import { IListUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
 export class UserListComponent implements OnInit {
   users: IListUserDTO[] | null = null;
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private readonly userCommand: UserCommand,
+    private readonly userQuery: UserQuery
+  ) {}
 
   ngOnInit(): void {
     this.loadUsers();
   }
 
   loadUsers(): void {
-    this.userService.ListUsers().subscribe({
+    this.userQuery.ListUsers().subscribe({
       next: (userList) => {
         this.users = userList;
       },
