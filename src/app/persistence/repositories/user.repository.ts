@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../../app/domain/models/user.model';
 import { ICreateUserDTO, IListUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
-import { IRepository } from 'src/app/persistence/IBaseRepository/IRepository';
+import { IRepository } from 'src/app/application/interfaces/IBaseRepository/IRepository';
 
 @Injectable({
   providedIn: 'root',

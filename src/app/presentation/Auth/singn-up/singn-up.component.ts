@@ -41,7 +41,6 @@ export class SingnUpComponent {
   renderSingIn(): void {
     this.router.navigate(['auth', 'singn-in']);
   }
-
   renderHomeComponent(): void {
     this.router.navigate(['home', 'publication']);
   }
