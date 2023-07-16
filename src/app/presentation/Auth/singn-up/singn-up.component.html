@@ -1,12 +1,13 @@
 <main class="create-user">
-
-  <button (click)="renderLanding()" class="btn-setting">Volver</button>
+  <section class="back-button">
+    <button (click)="renderLanding()" class="btn-setting">Volver</button>
+  </section>
 
   <form class="create-user-form" (ngSubmit)="onSubmit()" #formulario="ngForm">
     <section class="form-group">
       <label class="form-label" for="cedula">Cédula</label>
       <input
-        [(ngModel)]="formData.cedula"
+        [(ngModel)]="user.nationalIdentificationNumber"
         type="text"
         id="cedula"
         name="cedula"
@@ -18,18 +19,60 @@
     <section class="form-group">
       <label class="form-label" for="email">Correo electrónico</label>
       <input
-        [(ngModel)]="formData.email"
+        [(ngModel)]="user.email"
         type="email"
         id="email"
         name="email"
         required
         class="form-control"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+      />
+      <div
+        *ngIf="formulario.controls['email'].touched && formulario.controls['email'].errors?.['pattern']"
+        class="error-message"
+      >
+        <span class="error-message">El correo no es válido.</span>
+      </div>
+    </section>
+
+    <section class="form-group">
+      <label class="form-label" for="firstName">Nombre</label>
+      <input
+        [(ngModel)]="user.firstName"
+        type="text"
+        name="firstName"
+        id="firstName"
+        required
+        class="form-control"
       />
     </section>
     <section class="form-group">
+      <label class="form-label" for="lastName">Apellido</label>
+      <input
+        [(ngModel)]="user.lastName"
+        type="text"
+        name="lastName"
+        id="lastName"
+        required
+        class="form-control"
+      />
+    </section>
+    <section class="form-group">
+      <label class="form-label" for="phone">Teléfono</label>
+      <input
+        [(ngModel)]="user.phone"
+        type="text"
+        name="phone"
+        id="phone"
+        required
+        class="form-control"
+      />
+    </section>
+
+    <section class="form-group">
       <label class="form-label" for="password">Contraseña</label>
       <input
-        [(ngModel)]="formData.password"
+        [(ngModel)]="user.password"
         type="password"
         id="password"
         name="password"
@@ -38,6 +81,7 @@
         minlength="7"
       />
     </section>
+
     <section class="container-btn">
       <button
         type="submit"
@@ -49,4 +93,3 @@
     </section>
   </form>
 </main>
-

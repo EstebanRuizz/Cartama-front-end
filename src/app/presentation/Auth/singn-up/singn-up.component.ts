@@ -12,21 +12,25 @@ import { ICreateUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
 export class SingnUpComponent {
   constructor(private userCommand: UserCommand, private router: Router) {}
 
-  formData = {
-    cedula: '',
+  user: ICreateUserDTO = {
+    nationalIdentificationNumber: '',
     email: '',
+    firstName: '',
+    lastName: '',
+    phone: '',
     password: '',
+    profilePictureRoute: '',
+    idTypeDocument: 1,
+    idRol: 1
   };
 
   onSubmit() {
-    const newUser: ICreateUserDTO = {
-      email: this.formData.email,
-      password: this.formData.password,
-    };
-
-    this.userCommand.CreateUser(newUser).subscribe({
+    this.userCommand.CreateUser(this.user).subscribe({
       next: (response) => {
         console.log(response);
+        if (response) {
+         
+        }
         this.renderHomeComponent();
       },
       error: (error) => {

@@ -1,5 +1,5 @@
 <main class="create-user">
-  <button (click)="renderLanding()" class="btn-setting">Volver</button>
+  <button (click)="renderLanding()" class="back-button btn-setting">Volver</button>
 
   <form class="create-user-form" (ngSubmit)="onSubmit()" #formulario="ngForm">
     <section class="form-group">
@@ -34,8 +34,8 @@
         Enviar
       </button>
     </section>
+    <button (click)="renderResetPassword()" class="btn-setting">
+      Recuperar cuenta
+    </button>
   </form>
-  <button (click)="renderResetPassword()" class="btn-setting">
-    Recuperar cuenta
-  </button>
 </main>

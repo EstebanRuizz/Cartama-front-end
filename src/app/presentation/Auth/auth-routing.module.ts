@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 import { AuthComponent } from './auth.component';
 import { SingnInComponent } from './singn-in/singn-in.component';
 import { SingnUpComponent } from './singn-up/singn-up.component';

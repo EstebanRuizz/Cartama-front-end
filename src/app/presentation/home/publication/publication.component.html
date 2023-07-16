@@ -5,7 +5,7 @@
       {{ item.TypeAliance }} | <i>{{ item.AlianceDate }}</i>
     </p>
     <p>{{ item.Description }}</p>
-    <img [src]="item.DocumentRoute" alt="" />
+    <img [src]="item.DocumentRoute" alt="publication image" />
     <section *ngIf="isEducationType(item)">
       <button (click)="logElement(item.id)" class="btn-setting">
         Suscribete
