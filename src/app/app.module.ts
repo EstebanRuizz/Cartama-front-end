@@ -4,9 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './presentation/user/user-list/user-list.component';
-import { UserRespository } from './persistence/repositories/user.repository';
-import { UserCommand } from './application/features/user/commands/user.command';
-import { UserQuery } from './application/features/user/queries/UserQuery';
+import { UserCommand } from './application/features/user/commands/User.commands';
+import { UserQuery } from './application/features/user/queries/UserQueries';
 import { UserFormComponent } from './presentation/user/user-form/user-form.component';
 import { AuthModule } from './presentation/auth/auth.module';
 
@@ -23,7 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
     ReactiveFormsModule,
     AuthModule,
   ],
-  providers: [UserRespository, UserCommand, UserQuery],
+  providers: [UserCommand, UserQuery],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

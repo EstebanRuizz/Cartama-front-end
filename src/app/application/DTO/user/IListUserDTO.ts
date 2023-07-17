@@ -16,5 +16,18 @@ export interface ICreateUserDTO
     | 'idTypeDocument'
     | 'idRol'
   > {}
+export interface IUpdateUserDTO
+  extends Pick<
+    User,
+    | 'nationalIdentificationNumber'
+    | 'email'
+    | 'firstName'
+    | 'lastName'
+    | 'phone'
+    | 'password'
+    | 'profilePictureRoute'
+    | 'idTypeDocument'
+    | 'idRol'
+  > {}
 
 export interface IListUserDTO extends Pick<User, 'Id' | 'email' | 'password'> {}

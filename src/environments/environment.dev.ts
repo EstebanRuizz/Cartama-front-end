@@ -1,7 +1,9 @@
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:5204/api/v1',
+const PROD = 'http://parquecartama/api/v1'
+const DEVELOP = 'http://localhost:5204/api/v1'
 
+const BASE_URL = DEVELOP
 
-  // Agrega otras variables de entorno según tus necesidades
+export const END_POINTS = {
+  USER_END_POINT: `${BASE_URL}/User`,
+  PUBLICATION_END_POINT: `${BASE_URL}/Publication`,
 };

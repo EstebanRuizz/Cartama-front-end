@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IListUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
-import { UserCommand } from '../../../application/features/user/commands/user.command';
-import { UserQuery } from '../../../application/features/user/queries/UserQuery';
+import { UserCommand } from '../../../application/features/user/commands/User.commands';
+import { UserQuery } from '../../../application/features/user/queries/UserQueries';
 
 @Component({
   selector: 'app-user-list',
@@ -21,14 +21,14 @@ export class UserListComponent implements OnInit {
   }
 
   loadUsers(): void {
-    this.userQuery.ListUsers().subscribe({
-      next: (userList) => {
-        this.users = userList;
-      },
-      error: (error) => {
-        console.error(error);
-      },
-    });
+    // this.userQuery.ListUsers().subscribe({
+    //   next: (userList) => {
+    //     this.users = userList;
+    //   },
+    //   error: (error) => {
+    //     console.error(error);
+    //   },
+    // });
   }
 
   deleteUser(id: number): void {

@@ -14,8 +14,18 @@
         required
         class="form-control"
         autocomplete="name"
+        maxlength="30"
+        pattern="[0-9]+"
+        (input)="checkCedulaValidity()"
       />
+      <div
+        *ngIf="cedulaErrorFlag && formulario.controls['cedula'].dirty"
+        class="error-message"
+      >
+        <span class="error-message">{{ cedulaMessageError }}</span>
+      </div>
     </section>
+
     <section class="form-group">
       <label class="form-label" for="email">Correo electrónico</label>
       <input
@@ -25,13 +35,15 @@
         name="email"
         required
         class="form-control"
+        maxlength="80"
         pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+        (input)="checkEmailValidity()"
       />
       <div
-        *ngIf="formulario.controls['email'].touched && formulario.controls['email'].errors?.['pattern']"
+        *ngIf="errorFlag && formulario.controls['email'].dirty"
         class="error-message"
       >
-        <span class="error-message">El correo no es válido.</span>
+        <span class="error-message">{{ messageError }}</span>
       </div>
     </section>
 
@@ -41,11 +53,12 @@
         [(ngModel)]="user.firstName"
         type="text"
         name="firstName"
+        maxlength="40"
         id="firstName"
         required
         class="form-control"
-      />
-    </section>
+        />
+      </section>
     <section class="form-group">
       <label class="form-label" for="lastName">Apellido</label>
       <input
@@ -54,14 +67,16 @@
         name="lastName"
         id="lastName"
         required
+        maxlength="40"
         class="form-control"
-      />
-    </section>
-    <section class="form-group">
-      <label class="form-label" for="phone">Teléfono</label>
-      <input
+        />
+      </section>
+      <section class="form-group">
+        <label class="form-label" for="phone">Teléfono</label>
+        <input
         [(ngModel)]="user.phone"
         type="text"
+        maxlength="40"
         name="phone"
         id="phone"
         required
