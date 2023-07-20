@@ -5,5 +5,5 @@ const BASE_URL = DEVELOP
 
 export const END_POINTS = {
   USER_END_POINT: `${BASE_URL}/User`,
-  PUBLICATION_END_POINT: `${BASE_URL}/Publication`,
+  PUBLICATION_END_POINT: `${BASE_URL}/Publications`,
 };

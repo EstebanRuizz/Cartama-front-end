@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { BaseCommandRepository } from 'src/app/persistence/repositories/BaseCommandRepository';
 import { END_POINTS } from 'src/environments/environment.dev';
+import { ICreatePublicationDTO } from 'src/app/application/interfaces/Publication/ICreatePublicationDTO';
 
 interface CreatePublicationDTO {}
 interface UpdatePublicationDTO {}
@@ -21,7 +22,7 @@ export class PublicationCommand extends BaseCommandRepository<
     super(API_URL);
   }
 
-  override create(instance: CreatePublicationDTO): Observable<ListPublicationDTO> {
+  override create(instance: ICreatePublicationDTO): Observable<ListPublicationDTO> {
     return super.create(instance);
   }
 
