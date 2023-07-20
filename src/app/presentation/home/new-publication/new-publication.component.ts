@@ -1,9 +1,10 @@
+// new-publication.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { PublicationCommand } from 'src/app/application/features/publication/commands/PublicationCommand';
+import { NewPublicationMediator } from 'src/app/application/Mediator/New-publication-mediator';
 import { ICreatePublicationDTO } from 'src/app/application/interfaces/Publication/ICreatePublicationDTO';
-import { Publication } from 'src/app/domain/models/publication.model';
+
 
 @Component({
   selector: 'app-new-publication',
@@ -12,12 +13,9 @@ import { Publication } from 'src/app/domain/models/publication.model';
 })
 export class NewPublicationComponent implements OnInit {
   publicationForm!: FormGroup;
+  publicationCreated: boolean = false; // Propiedad para almacenar el estado de si la publicación fue creada o no
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private publicationCommand: PublicationCommand
-  ) {}
+  constructor(private formBuilder: FormBuilder, private mediator: NewPublicationMediator) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -27,25 +25,26 @@ export class NewPublicationComponent implements OnInit {
     this.publicationForm = this.formBuilder.group({
       title: ['', Validators.required],
       hasForm: [false, Validators.required],
-      idTypeOfPublication: [1, Validators.required], // Set a default value for idTypeOfPublication
+      idTypeOfPublication: [1, Validators.required],
       description: ['', Validators.required],
-      imageRoute: ['', Validators.required], // Make imageRoute field required
+      imageRoute: ['', Validators.required],
     });
   }
 
   onSubmit(): void {
     if (this.publicationForm.valid) {
       const publication: ICreatePublicationDTO = this.publicationForm.value;
-      console.log(publication);
-
-      this.publicationCommand.create(publication).subscribe({
-        next: (response) => {
-          console.log(response);
-        },
-        error: (error) => {
-          console.log(error);
-        }
-      });
+      this.mediator.createPublication(publication, this); // Solicitamos el mediador y pasamos el componente actual como parámetro
     }
+  }
+
+  handlePublicationCreated(response: any): void {
+    console.log('Publication created:', response);
+    this.publicationCreated = true; // Establecemos la bandera en true cuando la publicación es creada
+  }
+
+  handlePublicationError(error: any): void {
+    console.error('Publication error:', error);
+    // Aquí podrías mostrar un mensaje de error en la interfaz de usuario si lo deseas
   }
 }
