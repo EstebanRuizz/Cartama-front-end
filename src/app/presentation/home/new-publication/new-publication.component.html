@@ -1,0 +1,19 @@
+<app-header></app-header>
+<form [formGroup]="publicationForm" (ngSubmit)="onSubmit()">
+  <label>Title:</label>
+  <input type="text" formControlName="title" placeholder="title"/>
+
+  <label>Has Form:</label>
+  <input type="checkbox" formControlName="hasForm" placeholder="hasForm"/>
+
+  <label>Id Type of Publication:</label>
+  <input type="number" formControlName="idTypeOfPublication" placeholder="idTypeOfPublication"/>
+
+  <label>Description:</label>
+  <textarea formControlName="description" placeholder="description"></textarea>
+
+  <label>Image Route:</label>
+  <input type="text" formControlName="imageRoute" placeholder="imageRoute"/>
+
+  <button type="submit" [disabled]="!publicationForm.valid">Submit</button>
+</form>

@@ -1,5 +1,4 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { BaseCommandRepository } from 'src/app/persistence/repositories/BaseCommandRepository';
@@ -17,9 +16,9 @@ export class UserCommand extends BaseCommandRepository<
   DeleteUserDTO,
   ListUserDTO
 > {
-  constructor(protected override http: HttpClient) {
+  constructor() {
     const API_URL = END_POINTS.USER_END_POINT;
-    super(API_URL, http);
+    super(API_URL);
   }
 
   override create(instance: CreateUserDTO): Observable<ListUserDTO> {

@@ -3,17 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './presentation/user/user-list/user-list.component';
 import { UserCommand } from './application/features/user/commands/User.commands';
 import { UserQuery } from './application/features/user/queries/UserQueries';
-import { UserFormComponent } from './presentation/user/user-form/user-form.component';
 import { AuthModule } from './presentation/auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
-
+import { PublicationCommand } from './application/features/publication/commands/PublicationCommand';
 
 @NgModule({
-  declarations: [AppComponent, UserListComponent, UserFormComponent, ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,7 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
     ReactiveFormsModule,
     AuthModule,
   ],
-  providers: [UserCommand, UserQuery],
+  providers: [UserCommand, UserQuery, PublicationCommand],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

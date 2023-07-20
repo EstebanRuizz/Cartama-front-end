@@ -42,8 +42,6 @@ export class SingnUpComponent {
 
     this.userCommand.create(this.user).subscribe({
       next: (response) => {
-        console.log(response);
-
         this.renderHomeComponent();
       },
       error: (error) => {

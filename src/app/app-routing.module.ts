@@ -6,11 +6,46 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   {
     path: 'auth',
-    loadChildren: () => import('./presentation/auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () =>
+      import('./presentation/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'home',
-    loadChildren: () => import('./presentation/home/home.module').then(m => m.HomeModule)
+    loadChildren: () =>
+      import('./presentation/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'education',
+    loadChildren: () =>
+      import('./presentation/education/education.module').then(
+        (m) => m.EducationModule
+      ),
+  },
+  {
+    path: 'reservation',
+    loadChildren: () =>
+      import('./presentation/reservation/reservation.module').then(
+        (m) => m.ReservationModule
+      ),
+  },
+  {
+    path: 'contact',
+    loadChildren: () =>
+      import('./presentation/contact/contact.module').then(
+        (m) => m.ContactModule
+      ),
+  },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./presentation/user/user.module').then((m) => m.UserModule),
+  },
+  {
+    path: 'cartama',
+    loadChildren: () =>
+      import('./presentation/cartama/cartama.module').then(
+        (m) => m.CartamaModule
+      ),
   },
   { path: '**', component: LandingComponent },
 ];

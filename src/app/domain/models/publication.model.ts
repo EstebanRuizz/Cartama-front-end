@@ -1,8 +1,7 @@
-export interface IPublicationDTO {
-  id: number;
-  Name: string;
-  AlianceDate: string;
-  Description: string;
-  TypeAliance: string;
-  DocumentRoute: string;
+export interface Publication {
+  title: string;
+  hasForm: boolean;
+  idTypeOfPublication: number;
+  description: string;
+  imageRoute: string;
 }

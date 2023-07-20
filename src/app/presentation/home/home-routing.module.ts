@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PublicationComponent } from './publication/publication.component';
+import { NewPublicationComponent } from './new-publication/new-publication.component';
 import { HomeComponent } from './home.component';
-import { ReservationComponent } from './reservation/reservation.component';
 
 const routes: Routes = [
   {
     path: '', component: HomeComponent,
     children: [
       { path: 'publication', component: PublicationComponent },
-      { path: 'reservation', component: ReservationComponent },
+      { path: 'new-publication', component: NewPublicationComponent },
     ],
   },
 ];

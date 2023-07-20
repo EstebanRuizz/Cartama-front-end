@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-publication',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./publication.component.css'],
 })
 export class PublicationComponent {
+  constructor(private router: Router) {}
+
   publication = {
     id: 0,
     Name: '',
@@ -68,4 +71,7 @@ export class PublicationComponent {
     console.log('Clicked on element with ID:', itemId);
   }
 
+  goToNewPublication(): void {
+    this.router.navigate(['home', 'new-publication']);
+  }
 }

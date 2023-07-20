@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpHandler, HttpXhrBackend } from '@angular/common/http';
 import { ICommandRepository } from 'src/app/application/interfaces/ICommandRepository';
 
 export class BaseCommandRepository<
@@ -17,20 +16,35 @@ export class BaseCommandRepository<
     >
 {
   readonly baseUrl: string;
+  private static httpInstance: HttpClient;
 
-  constructor(baseUrl: string, protected http: HttpClient) {
+  constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
+    if (!BaseCommandRepository.httpInstance) {
+      const httpHandler = new HttpXhrBackend({
+        build: () => new XMLHttpRequest(),
+      });
+      BaseCommandRepository.httpInstance = new HttpClient(httpHandler);
+    }
   }
 
   create(instance: CreateInstanceDTO): Observable<ListInstanceDTO> {
-    return this.http.post<ListInstanceDTO>(`${this.baseUrl}`, instance);
+    return BaseCommandRepository.httpInstance.post<ListInstanceDTO>(
+      this.baseUrl,
+      instance
+    );
   }
 
   update(instance: UpdateInstanceDTO): Observable<ListInstanceDTO> {
-    return this.http.put<ListInstanceDTO>(`${this.baseUrl}`, instance);
+    return BaseCommandRepository.httpInstance.put<ListInstanceDTO>(
+      `${this.baseUrl}`,
+      instance
+    );
   }
 
   delete(id: number): Observable<DeleteInstanceDTO> {
-    return this.http.delete<DeleteInstanceDTO>(`${this.baseUrl}/${id}`);
+    return BaseCommandRepository.httpInstance.delete<DeleteInstanceDTO>(
+      `${this.baseUrl}/${id}`
+    );
   }
 }
