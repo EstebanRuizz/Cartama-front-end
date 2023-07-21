@@ -10,10 +10,10 @@ import { ICreateUserDTO } from 'src/app/application/DTO/user/IListUserDTO';
   styleUrls: ['./singn-up.component.css'],
 })
 export class SingnUpComponent {
+  constructor(private userCommand: UserCommand, private router: Router) {}
   @ViewChild('formulario', { static: true })
   formulario!: NgForm;
 
-  constructor(private userCommand: UserCommand, private router: Router) {}
 
   errorFlag: boolean = false;
   cedulaErrorFlag: boolean = false;

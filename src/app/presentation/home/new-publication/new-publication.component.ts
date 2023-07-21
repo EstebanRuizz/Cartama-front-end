@@ -1,54 +1,51 @@
-// new-publication.component.ts
-import { Component, Injectable, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Component, Injectable } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICreatePublicationDTO, IDeletePublicationDXTO, IListPublicationDXTO, IUpdatePublicationDTO } from 'src/app/application/interfaces/Publication/ICreatePublicationDTO';
 import { PublicationCommand } from 'src/app/application/features/publication/commands/PublicationCommand';
 import { GenericMediator } from 'src/app/application/Mediator/GenericMediator';
+import { BaseInstanceComponent } from 'src/app/application/Generic/BaseinstanceComponent';
 
 @Injectable()
 @Component({
   selector: 'app-new-publication',
   templateUrl: './new-publication.component.html',
   styleUrls: ['./new-publication.component.css'],
-  providers: [PublicationCommand], 
+  providers: [PublicationCommand],
 })
-export class NewPublicationComponent implements OnInit {
-  publicationForm!: FormGroup;
+export class NewPublicationComponent extends BaseInstanceComponent<
+  ICreatePublicationDTO,
+  IUpdatePublicationDTO,
+  IDeletePublicationDXTO,
+  IListPublicationDXTO,
+  ICreatePublicationDTO
+> {
   publicationCreated: boolean = false;
 
+  // Change property name to 'instanceForm'
   constructor(
-    private formBuilder: FormBuilder,
-    private mediator: GenericMediator<ICreatePublicationDTO,IUpdatePublicationDTO,IDeletePublicationDXTO,IListPublicationDXTO>
-  ) {}
-
-  ngOnInit(): void {
-    this.initForm();
+    formBuilder: FormBuilder,
+    mediator: GenericMediator<ICreatePublicationDTO, IUpdatePublicationDTO, IDeletePublicationDXTO, IListPublicationDXTO>
+  ) {
+    // Ensure to call the 'super' constructor with 'instanceForm'
+    super(formBuilder, mediator);
   }
 
-  initForm(): void {
-    this.publicationForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      hasForm: [false, Validators.required],
-      idTypeOfPublication: [1, Validators.required],
-      description: ['', Validators.required],
-      imageRoute: ['', Validators.required],
-    });
+  override createFormControls(): Record<string, AbstractControl> {
+    return {
+      title: this.formBuilder.control('', Validators.required),
+      hasForm: this.formBuilder.control(false, Validators.required),
+      idTypeOfPublication: this.formBuilder.control(1, Validators.required),
+      description: this.formBuilder.control('', Validators.required),
+      imageRoute: this.formBuilder.control('', Validators.required),
+    };
   }
 
-  onSubmit(): void {
-    if (this.publicationForm.valid) {
-      const publication: ICreatePublicationDTO = this.publicationForm.value;
-      this.mediator.create(publication, this);
-    }
-  }
-
-  handleCreated(response: any): void {
+  override handleCreated(response: IListPublicationDXTO): void {
     console.log('Publication created:', response);
     this.publicationCreated = true;
   }
 
-  handleError(error: any): void {
+  override handleError(error: any): void {
     console.error('Publication error:', error);
   }
 }

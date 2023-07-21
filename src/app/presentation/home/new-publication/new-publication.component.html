@@ -1,5 +1,4 @@
-<app-header></app-header>
-<form [formGroup]="publicationForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="instanceForm" (ngSubmit)="onSubmit()">
   <label>Title:</label>
   <input type="text" formControlName="title" placeholder="title"/>
 
@@ -15,7 +14,7 @@
   <label>Image Route:</label>
   <input type="text" formControlName="imageRoute" placeholder="imageRoute"/>
 
-  <button type="submit" [disabled]="!publicationForm.valid">Submit</button>
+  <button type="submit" [disabled]="!instanceForm.valid">Submit</button>
 </form>
 <section *ngIf="publicationCreated">
   creado
