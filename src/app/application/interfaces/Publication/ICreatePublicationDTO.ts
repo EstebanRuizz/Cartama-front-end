@@ -5,4 +5,20 @@ export interface ICreatePublicationDTO {
   description: string;
   imageRoute: string;
 }
+export interface IUpdatePublicationDTO {}
+export interface IDeletePublicationDXTO {}
+export interface IListPublicationDXTO {}
+
+
+
+
+
+
+
+
+
+
+
+
+
 

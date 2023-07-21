@@ -20,7 +20,7 @@ import { PublicationCommand } from './application/features/publication/commands/
     ReactiveFormsModule,
     AuthModule,
   ],
-  providers: [UserCommand, UserQuery, PublicationCommand],
+  providers: [UserCommand, UserQuery, PublicationCommand,],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
