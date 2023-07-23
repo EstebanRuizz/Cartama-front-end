@@ -1,18 +1,10 @@
-.create-user {
+.form-center {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   background: url(https://www.elcolombiano.com/documents/10157/0/901x562/0c0/0d0/none/11101/DPHW/image_content_22258634_20141204084703.jpg) center/cover no-repeat;
 }
-
-
-.form-group {
-  margin-bottom: 10px;
-  position: relative;
-  margin-top: 25px;
-}
-
 label {
   font-weight: bold;
 }

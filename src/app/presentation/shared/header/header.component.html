@@ -1,6 +1,6 @@
 <header [ngClass]="{'fixed': fixedHeader}" (window:scroll)="onScroll()">
   <nav class="nav-var">
-    <button class="btn-setting-mobile icon-Inicio">Inicio</button>
+    <button (click)="goToHome()" class="btn-setting-mobile icon-Inicio">Inicio</button>
     <button class="btn-setting-mobile icon-Educacion">Educacion</button>
     <button class="btn-setting-mobile icon-Reservas">Reservas</button>
     <button class="btn-setting-mobile icon-Cartama">Cartama</button>

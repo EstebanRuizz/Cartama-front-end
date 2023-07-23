@@ -10,5 +10,5 @@ export interface ICommandRepository<
 
   create(instance: CreateInstanceDTO): Observable<ListInstanceDTO>;
   update(instance: UpdateInstanceDTO): Observable<ListInstanceDTO>;
-  delete(id: number): Observable<DeleteInstanceDTO>;
+  delete(id: DeleteInstanceDTO): Observable<ListInstanceDTO>;
 }

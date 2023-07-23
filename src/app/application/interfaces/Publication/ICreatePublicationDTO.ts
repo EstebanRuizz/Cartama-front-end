@@ -1,13 +1,9 @@
-export interface ICreatePublicationDTO {
-  title: string;
-  hasForm: boolean;
-  idTypeOfPublication: number;
-  description: string;
-  imageRoute: string;
-}
-export interface IUpdatePublicationDTO {}
-export interface IDeletePublicationDXTO {}
-export interface IListPublicationDXTO {}
+import { Publication } from "src/app/domain/models/publication.model";
+
+export interface ICreatePublicationDTO extends Pick<Publication, 'title' | 'hasForm' | 'idTypeOfPublication' | 'description' | 'imageRoute'> { }
+
+
+
 
 
 

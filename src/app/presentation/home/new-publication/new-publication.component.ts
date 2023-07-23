@@ -1,9 +1,12 @@
 import { Component, Injectable } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ICreatePublicationDTO, IDeletePublicationDXTO, IListPublicationDXTO, IUpdatePublicationDTO } from 'src/app/application/interfaces/Publication/ICreatePublicationDTO';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { ICreatePublicationDTO } from 'src/app/application/interfaces/Publication/ICreatePublicationDTO';
 import { PublicationCommand } from 'src/app/application/features/publication/commands/PublicationCommand';
 import { GenericMediator } from 'src/app/application/Mediator/GenericMediator';
 import { BaseInstanceComponent } from 'src/app/application/Generic/BaseinstanceComponent';
+import { IUpdatePublicationDTO } from 'src/app/application/interfaces/Publication/IUpdatePublicationDTO';
+import { IDeletePublicationDTO } from 'src/app/application/interfaces/Publication/IDeletePublicationDTO';
+import { IListPublicationDTO } from 'src/app/application/DTO/publication/IPublicationDTO';
 
 @Injectable()
 @Component({
@@ -15,18 +18,16 @@ import { BaseInstanceComponent } from 'src/app/application/Generic/BaseinstanceC
 export class NewPublicationComponent extends BaseInstanceComponent<
   ICreatePublicationDTO,
   IUpdatePublicationDTO,
-  IDeletePublicationDXTO,
-  IListPublicationDXTO,
+  IDeletePublicationDTO,
+  IListPublicationDTO,
   ICreatePublicationDTO
 > {
   publicationCreated: boolean = false;
 
-  // Change property name to 'instanceForm'
   constructor(
     formBuilder: FormBuilder,
-    mediator: GenericMediator<ICreatePublicationDTO, IUpdatePublicationDTO, IDeletePublicationDXTO, IListPublicationDXTO>
+    mediator: GenericMediator<ICreatePublicationDTO, IUpdatePublicationDTO, IDeletePublicationDTO, IListPublicationDTO>
   ) {
-    // Ensure to call the 'super' constructor with 'instanceForm'
     super(formBuilder, mediator);
   }
 
@@ -40,7 +41,7 @@ export class NewPublicationComponent extends BaseInstanceComponent<
     };
   }
 
-  override handleCreated(response: IListPublicationDXTO): void {
+  override handleCreated(response: IListPublicationDTO): void {
     console.log('Publication created:', response);
     this.publicationCreated = true;
   }

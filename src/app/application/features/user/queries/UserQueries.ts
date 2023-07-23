@@ -9,9 +9,9 @@ interface ListUserDTO {}
 
 @Injectable()
 export class UserQuery extends BaseQueryRepository<ListUserDTO> {
-  constructor(protected override http: HttpClient) {
+  constructor() {
     const API_URL = END_POINTS.USER_END_POINT;
-    super(API_URL, http);
+    super(API_URL);
   }
 
   override getById(id: number): Observable<ListUserDTO> {

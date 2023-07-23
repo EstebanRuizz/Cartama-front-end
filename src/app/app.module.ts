@@ -9,6 +9,7 @@ import { AuthModule } from './presentation/auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PublicationCommand } from './application/features/publication/commands/PublicationCommand';
+import { HttpService } from './application/ServiceExtension/HttpService';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,7 @@ import { PublicationCommand } from './application/features/publication/commands/
     ReactiveFormsModule,
     AuthModule,
   ],
-  providers: [UserCommand, UserQuery, PublicationCommand,],
+  providers: [UserCommand, UserQuery, PublicationCommand, HttpService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

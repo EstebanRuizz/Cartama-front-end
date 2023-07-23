@@ -1,27 +1,11 @@
-.create-user {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: url(https://scontent.feoh8-1.fna.fbcdn.net/v/t39.30808-6/216603102_4346677178723171_3305963167336378960_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=e3f864&_nc_ohc=pd6LkPsYsE4AX-juCBy&_nc_ht=scontent.feoh8-1.fna&oh=00_AfC5zf27nxIgoFgAZJgCAsoQfFjDDUTIrxSG-IbOPn0Y7A&oe=64A7E84C) center/cover no-repeat;
-}
-
-.form-group {
-  margin-bottom: 10px;
-  position: relative;
-  margin-top: 25px;
-}
-
 label {
   font-weight: bold;
 }
-
 .form-control {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 .submit-btn {
   padding: 10px 20px;
   background-color: #007bff;
@@ -30,52 +14,28 @@ label {
   border-radius: 5px;
   cursor: pointer;
 }
-
 .submit-btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
-
-.form-label {
-  position: absolute;
-  top: -10px;
-  left: 10px;
-  background-color: white;
-  padding: 0 5px;
-  color: #888;
-  font-size: 12px;
-  transition: all 0.2s ease;
-}
-
 .form-control {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 .form-control:focus + .form-label,
 .form-control:valid + .form-label {
   top: -20px;
   font-size: 10px;
 }
-
 .container-btn {
   display: flex;
   justify-content: center;
 }
-
 .submit-btn {
   margin: 10px;
 }
-
-
 .error-message {
   font-size: 10px;
   font-weight: bolder;
 }
-
-
-
-
-
-

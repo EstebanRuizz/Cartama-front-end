@@ -1,13 +1,30 @@
-import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
+import { GenericMediator } from 'src/app/application/Mediator/GenericMediator';
+import { PublicationQuery } from 'src/app/application/features/publication/queries/PublicationQuery';
+import { IListPublicationDTO } from 'src/app/application/DTO/publication/IPublicationDTO';
+import { ICreatePublicationDTO } from 'src/app/application/interfaces/Publication/ICreatePublicationDTO';
+import { IDeletePublicationDTO } from 'src/app/application/interfaces/Publication/IDeletePublicationDTO';
+import { IUpdatePublicationDTO } from 'src/app/application/interfaces/Publication/IUpdatePublicationDTO';
+import { Pagination } from 'src/app/application/interfaces/IQueryRepository';
 
 @Component({
   selector: 'app-publication',
   templateUrl: './publication.component.html',
   styleUrls: ['./publication.component.css'],
+  providers: [PublicationQuery]
 })
-export class PublicationComponent {
-  constructor(private router: Router) {}
+export class PublicationComponent implements OnInit {
+  constructor(private router: Router,
+    private readonly mediator: GenericMediator<ICreatePublicationDTO, IUpdatePublicationDTO, IDeletePublicationDTO, IListPublicationDTO>
+  ) { }
+  ngOnInit(): void {
+    let pagination: Pagination = { limit: 10, offset: 1 }
+    let publications = this.mediator.getAll(this)
+    console.log(publications);
+
+  }
 
   publication = {
     id: 0,
@@ -74,4 +91,14 @@ export class PublicationComponent {
   goToNewPublication(): void {
     this.router.navigate(['home', 'new-publication']);
   }
+  
+  handleCreated(response: IListPublicationDTO): void {
+    console.log('Publication created:', response);
+    
+  }
+
+  handleError(error: any): void {
+    console.error('Publication error:', error);
+  }
+  
 }

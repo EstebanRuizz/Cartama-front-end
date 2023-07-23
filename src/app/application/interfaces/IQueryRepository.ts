@@ -8,6 +8,8 @@ export type Pagination = {
 export interface IQueryRepository<ListInstanceDTO> {
   readonly baseUrl: string;
 
-  getAllPaginated(pagination: Pagination): Observable<ListInstanceDTO[]>;
+  getAll(): Observable<ListInstanceDTO[]>;
   getById(id: number): Observable<ListInstanceDTO>;
+  getAllPaginated(pagination: Pagination): Observable<ListInstanceDTO[]>;
+  
 }

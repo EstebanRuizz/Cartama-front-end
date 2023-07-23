@@ -1,21 +1,33 @@
-<form [formGroup]="instanceForm" (ngSubmit)="onSubmit()">
-  <label>Title:</label>
-  <input type="text" formControlName="title" placeholder="title"/>
+<main class="form-center">
+  <form [formGroup]="instanceForm" (ngSubmit)="onSubmit()">
+    <section class="form-group">
+      <label>Title:</label>
+      <input type="text" formControlName="title" placeholder="title" />
+    </section>
 
-  <label>Has Form:</label>
-  <input type="checkbox" formControlName="hasForm" placeholder="hasForm"/>
+    <section class="form-group">
+      <label>Has Form:</label>
+      <input type="checkbox" formControlName="hasForm" placeholder="hasForm" />
+    </section>
 
-  <label>Id Type of Publication:</label>
-  <input type="number" formControlName="idTypeOfPublication" placeholder="idTypeOfPublication"/>
+    <section class="form-group">
+      <label>Id Type of Publication:</label>
+      <input type="number" formControlName="idTypeOfPublication" placeholder="idTypeOfPublication" />
+    </section>
 
-  <label>Description:</label>
-  <textarea formControlName="description" placeholder="description"></textarea>
+    <section class="form-group">
+      <label>Description:</label>
+      <textarea formControlName="description" placeholder="description"></textarea>
+    </section>
 
-  <label>Image Route:</label>
-  <input type="text" formControlName="imageRoute" placeholder="imageRoute"/>
+    <section class="form-group">
+      <label>Image Route:</label>
+      <input type="text" formControlName="imageRoute" placeholder="imageRoute" />
+    </section>
 
-  <button type="submit" [disabled]="!instanceForm.valid">Submit</button>
-</form>
-<section *ngIf="publicationCreated">
-  creado
-</section>
+    <button type="submit" [disabled]="!instanceForm.valid" class="submit-btn">Submit</button>
+  </form>
+  <section *ngIf="publicationCreated">
+    creado
+  </section>
+</main>

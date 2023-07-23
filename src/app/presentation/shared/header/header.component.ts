@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,8 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+  constructor(private router: Router) {}
+  
   fixedHeader = false;
 
   @HostListener('window:scroll', [])
@@ -14,4 +16,9 @@ export class HeaderComponent {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
     this.fixedHeader = scrollPosition > 0;
   }
+  
+  goToHome(): void {
+    this.router.navigate(['home', 'publication']);
+  }
+
 }

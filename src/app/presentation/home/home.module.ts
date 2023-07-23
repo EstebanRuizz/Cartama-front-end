@@ -10,6 +10,7 @@ import { NewPublicationComponent } from './new-publication/new-publication.compo
 import { PublicationCommand } from 'src/app/application/features/publication/commands/PublicationCommand';
 import { GenericMediator } from 'src/app/application/Mediator/GenericMediator';
 import { genericMediatorFactory } from 'src/app/application/ServiceExtension/genericMediatorFactory';
+import { PublicationQuery } from 'src/app/application/features/publication/queries/PublicationQuery';
 
 
 @NgModule({
@@ -17,10 +18,11 @@ import { genericMediatorFactory } from 'src/app/application/ServiceExtension/gen
   imports: [CommonModule, HomeRoutingModule, ReactiveFormsModule],
   providers: [
     PublicationCommand, // Provide the concrete implementation of PublicationCommand
+    PublicationQuery,
     {
       provide: GenericMediator,
       useFactory: genericMediatorFactory,
-      deps: [PublicationCommand], // Define the dependencies required for the factory function
+      deps: [PublicationCommand, PublicationQuery], // Define the dependencies required for the factory function
     },
   ],
 })
