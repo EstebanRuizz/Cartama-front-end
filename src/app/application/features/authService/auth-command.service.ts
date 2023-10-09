@@ -12,7 +12,6 @@ export class AuthCommandService {
   constructor(private httpClient: HttpClient) {}
 
   authenticate(request: ICreateTokenDTO): Observable<IListTokenDTO> {
-    console.log(EndPoints.AUTHENTICATE);
     return this.httpClient.post<IListTokenDTO>(EndPoints.AUTHENTICATE, request);
   }
 }

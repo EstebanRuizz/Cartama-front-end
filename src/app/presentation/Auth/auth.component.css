@@ -1,0 +1,26 @@
+.main-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .intro--message {
+    border-radius: 5px;
+    background-color: #151515;
+    color: white;
+    opacity: 90%;
+    margin-bottom: 35vh;
+    padding: 10px;
+  }
+  
+  .btn-create-account {
+    background-image: url(https://img.icons8.com/?size=512&id=3&format=png);
+  }
+  .btn-sign-in {
+    background-image: url(https://img.icons8.com/?size=512&id=1090&format=png);
+  }

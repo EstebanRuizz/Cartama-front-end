@@ -3,13 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { UserCommand } from './application/features/user/commands/User.commands';
-import { UserQuery } from './application/features/user/queries/UserQueries';
 import { AuthModule } from './presentation/auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
-import { PublicationCommand } from './application/features/publication/commands/PublicationCommand';
-import { HttpService } from './application/ServiceExtension/HttpService';
 import { IonicModule } from '@ionic/angular';
 import { HttpMediator } from './application/mediator/HttpMediator';
 
@@ -25,7 +21,7 @@ import { HttpMediator } from './application/mediator/HttpMediator';
     AuthModule,
     IonicModule.forRoot(),
   ],
-  providers: [HttpMediator, UserCommand, UserQuery, PublicationCommand, HttpService],
-  bootstrap: [AppComponent],
+  providers: [ HttpMediator, ],
+  bootstrap: [ AppComponent],
 })
 export class AppModule { }

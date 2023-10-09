@@ -26,21 +26,14 @@ export class SingnInComponent implements OnInit {
 
   errorMessage: string | null = null;
   signInForm!: FormGroup;
-
-  getObj(): ICreateTokenDTO {
-    return {
-      email: this.signInForm.get('email')?.value || '',
-      password: this.signInForm.get('password')?.value || '',
-    };
-  }
-
+  
   private initForm(): void {
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
-
+  
   ngOnInit(): void {
     this.initForm();
   }
@@ -48,29 +41,37 @@ export class SingnInComponent implements OnInit {
   onSubmit(): void {
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListTokenDTO> = {
-      success: this.handleSuccess.bind(this),
+      success: this.setToken.bind(this),
       error: this.handleError.bind(this),
     };
     const params: CommandParamsWithPayload<ICreateTokenDTO, IListTokenDTO> = {
       commandClass: AuthCommandService,
       method: AuthCommandService.prototype.authenticate,
-      data: this.getObj(),
+      data: this.getAuthenticateDTO(),
       callbacks,
     };
     this.httpMediator.execWithPayload(params);
   }
-
-  handleSuccess(tokenObject: IListTokenDTO): void {
-    console.log(tokenObject);
+  
+  private setToken(tokenObject: IListTokenDTO): void {
+    sessionStorage.setItem('jwtToken', tokenObject.data.jwToken);
   }
   
-  handleError(error: string): void {
+  private getAuthenticateDTO(): ICreateTokenDTO {
+    return {
+      email: this.signInForm.get('email')?.value || '',
+      password: this.signInForm.get('password')?.value || '',
+    };
+  }
+
+  private handleError(error: string): void {
     console.log(error);
   }
 
   renderLanding(): void {
     this.router.navigate(['landing']);
   }
+
   renderResetPassword(): void {
     this.router.navigate(['auth', 'password-reset']);
   }
