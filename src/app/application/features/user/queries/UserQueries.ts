@@ -1,16 +1,16 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { END_POINTS } from 'src/environments/environment.dev';
+
 import { Pagination } from 'src/app/application/interfaces/IQueryRepository';
 import { BaseQueryRepository } from 'src/app/persistence/repositories/BaseQueryRepository';
+import { EndPoints } from 'src/environments/EndPoints';
 
 interface ListUserDTO {}
 
 @Injectable()
 export class UserQuery extends BaseQueryRepository<ListUserDTO> {
   constructor() {
-    const API_URL = END_POINTS.USER_END_POINT;
+    const API_URL = EndPoints.USER;
     super(API_URL);
   }
 

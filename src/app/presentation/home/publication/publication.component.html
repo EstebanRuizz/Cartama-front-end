@@ -4,14 +4,14 @@
   </button>
 </section>
 
-<main *ngFor="let publication of publicationList" class="aling">
-  <article class="publication-card">
-    <h3>{{ publication.Name }}</h3>
-    <p>
-      {{ publication.TypeAliance }} | <i> {{ publication.AlianceDate }} </i>
-    </p>
-    <p>{{ publication.Description }}</p>
-    <img [src]="publication.DocumentRoute" alt="publication image" />
+<main class="aling">
+  <article *ngFor="let publication of publicationList" class="publication-card">
+    
+    <h3>{{ publication.title }}</h3>
+    <p>{{ publication.description }} | <i>{{publication.createdDate}}</i></p>
+    <p> ***** {{ publication.idTypeOfPublication }}</p>
+    <img [src]="publication.imageRoute" alt="publication image" />
+    
     <section *ngIf="isEducationType(publication)" class="row-elements">
       <button (click)="logElement(publication.id)" class="btn-setting">
         Editar
@@ -23,5 +23,6 @@
         Eliminar
       </button>
     </section>
-  </article>
+    
+  </article>  
 </main>

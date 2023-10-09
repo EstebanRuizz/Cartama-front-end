@@ -44,8 +44,7 @@ export abstract class BaseInstanceComponent<
       this.mediator.create(instance, this);
     }
   }
-
-  abstract handleCreated(response: TList): void;
-
+  
+  abstract handleSuccess(response: TList): void;
   abstract handleError(error: any): void;
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IResetPassword } from 'src/app/application/DTO/user/IListUserDTO';
-import { AuthService } from 'src/app/application/features/authService/auth.service';
 
 @Component({
   selector: 'app-password-reset',
@@ -10,7 +9,6 @@ import { AuthService } from 'src/app/application/features/authService/auth.servi
 })
 export class PasswordResetComponent {
   constructor(
-    private readonly authService: AuthService,
     private readonly router: Router
   ) {}
 

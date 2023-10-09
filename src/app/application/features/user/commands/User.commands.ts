@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import { BaseCommandRepository } from 'src/app/persistence/repositories/BaseCommandRepository';
-import { END_POINTS } from 'src/environments/environment.dev';
+import { EndPoints } from 'src/environments/EndPoints';
 
 interface CreateUserDTO {}
 interface UpdateUserDTO {}
@@ -17,7 +17,7 @@ export class UserCommand extends BaseCommandRepository<
   ListUserDTO
 > {
   constructor() {
-    const API_URL = END_POINTS.USER_END_POINT;
+    const API_URL = EndPoints.USER
     super(API_URL);
   }
 

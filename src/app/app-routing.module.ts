@@ -9,11 +9,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./presentation/auth/auth.module').then((m) => m.AuthModule),
   },
-  {
-    path: 'home',
-    loadChildren: () =>
-      import('./presentation/home/home.module').then((m) => m.HomeModule),
-  },
+  // {
+  //   path: 'home',
+  //   loadChildren: () =>
+  //     import('./presentation/home/home.module').then((m) => m.HomeModule),
+  // },
   {
     path: 'education',
     loadChildren: () =>
@@ -47,6 +47,7 @@ const routes: Routes = [
         (m) => m.CartamaModule
       ),
   },
+  { path: 'platzi', loadChildren: () => import('./presentation/platzi/platzi.module').then(m => m.PlatziModule) },
   { path: '**', component: LandingComponent },
 ];
 

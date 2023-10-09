@@ -2,9 +2,9 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import { BaseCommandRepository } from 'src/app/persistence/repositories/BaseCommandRepository';
-import { END_POINTS } from 'src/environments/environment.dev';
 import { ICreatePublicationDTO } from 'src/app/application/interfaces/Publication/ICreatePublicationDTO';
 import { ICommandRepository } from 'src/app/application/interfaces/ICommandRepository';
+import { EndPoints } from 'src/environments/EndPoints';
 
 interface CreatePublicationDTO {}
 interface UpdatePublicationDTO {}
@@ -19,7 +19,7 @@ export class PublicationCommand extends BaseCommandRepository<
   ListPublicationDTO
 > implements ICommandRepository<ICreatePublicationDTO, UpdatePublicationDTO, DeletePublicationDTO, ListPublicationDTO>  {
   constructor() {
-    const API_URL = END_POINTS.PUBLICATION_END_POINT;
+    const API_URL = EndPoints.PUBLICATION
     super(API_URL);
   }
 

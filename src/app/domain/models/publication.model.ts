@@ -1,8 +1,9 @@
 export interface Publication {
-  Id: number;
+  id: number;
   title: string;
   hasForm: boolean;
-  idTypeOfPublication: number;
+  idTypeOfPublication: number | null;
   description: string;
   imageRoute: string;
+  createdDate: string;
 }

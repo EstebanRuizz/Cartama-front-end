@@ -1,56 +1,77 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ILoginUser } from 'src/app/application/DTO/user/IListUserDTO';
-import { AuthService } from 'src/app/application/features/authService/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { IListTokenDTO } from 'src/app/application/DTO/auth/IListTokenDTO';
+import { ICreateTokenDTO } from 'src/app/application/DTO/auth/ICreateTokenDTO';
+import { AuthCommandService } from 'src/app/application/features/authService/auth-command.service';
+import {
+  HttpMediator,
+  HttpMediatorCallbacks,
+  CommandParamsWithPayload,
+} from 'src/app/application/mediator/HttpMediator';
 
 @Component({
   selector: 'app-singn-in',
   templateUrl: './singn-in.component.html',
   styleUrls: ['./singn-in.component.css'],
 })
-export class SingnInComponent {
+
+export class SingnInComponent implements OnInit {
   constructor(
-    private readonly authService: AuthService,
-    private readonly router: Router
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private httpMediator: HttpMediator,
   ) {}
 
-  userSignIn: ILoginUser = {
-    email: '',
-    password: '',
-  };
+  errorMessage: string | null = null;
+  signInForm!: FormGroup;
 
-  onSubmit() {
-
-    console.log(this.userSignIn);
-
-    // this.authService.loginUser(this.userSignIn).subscribe({
-    //   next: (response) => {},
-    //   error: (error: Error) => {},
-    // });
+  getObj(): ICreateTokenDTO {
+    return {
+      email: this.signInForm.get('email')?.value || '',
+      password: this.signInForm.get('password')?.value || '',
+    };
   }
 
+  private initForm(): void {
+    this.signInForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+    });
+  }
 
+  ngOnInit(): void {
+    this.initForm();
+  }
+  
+  onSubmit(): void {
+    this.errorMessage = null;
+    const callbacks: HttpMediatorCallbacks<IListTokenDTO> = {
+      success: this.handleSuccess.bind(this),
+      error: this.handleError.bind(this),
+    };
+    const params: CommandParamsWithPayload<ICreateTokenDTO, IListTokenDTO> = {
+      commandClass: AuthCommandService,
+      method: AuthCommandService.prototype.authenticate,
+      data: this.getObj(),
+      callbacks,
+    };
+    this.httpMediator.execWithPayload(params);
+  }
 
-
+  handleSuccess(tokenObject: IListTokenDTO): void {
+    console.log(tokenObject);
+  }
+  
+  handleError(error: string): void {
+    console.log(error);
+  }
 
   renderLanding(): void {
     this.router.navigate(['landing']);
   }
   renderResetPassword(): void {
     this.router.navigate(['auth', 'password-reset']);
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
 }

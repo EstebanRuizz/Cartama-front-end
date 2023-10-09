@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">hr-frontend</string>
+    <string name="title_activity_main">hr-frontend</string>
+    <string name="package_name">com.cartamaparque</string>
+    <string name="custom_url_scheme">com.cartamaparque</string>
+</resources>

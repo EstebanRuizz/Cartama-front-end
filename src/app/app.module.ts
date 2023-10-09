@@ -10,6 +10,9 @@ import { AuthModule } from './presentation/auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 import { PublicationCommand } from './application/features/publication/commands/PublicationCommand';
 import { HttpService } from './application/ServiceExtension/HttpService';
+import { IonicModule } from '@ionic/angular';
+import { HttpMediator } from './application/mediator/HttpMediator';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,8 +23,9 @@ import { HttpService } from './application/ServiceExtension/HttpService';
     FormsModule,
     ReactiveFormsModule,
     AuthModule,
+    IonicModule.forRoot(),
   ],
-  providers: [UserCommand, UserQuery, PublicationCommand, HttpService],
+  providers: [HttpMediator, UserCommand, UserQuery, PublicationCommand, HttpService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
