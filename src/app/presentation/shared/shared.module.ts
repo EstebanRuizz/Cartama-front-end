@@ -6,16 +6,8 @@ import { SharedComponent } from './shared.component';
 import { LandingComponent } from './landing/landing.component';
 import { HeaderComponent } from './header/header.component';
 
-
 @NgModule({
-  declarations: [
-    SharedComponent,
-    LandingComponent,
-    HeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedRoutingModule,
-  ]
+  declarations: [SharedComponent, LandingComponent, HeaderComponent],
+  imports: [CommonModule, SharedRoutingModule],
 })
-export class SharedModule { }
+export class SharedModule {}

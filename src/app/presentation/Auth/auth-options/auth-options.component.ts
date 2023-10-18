@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css'],
+  selector: 'app-auth-options',
+  templateUrl: './auth-options.component.html',
+  styleUrls: ['./auth-options.component.css'],
 })
-export class LandingComponent {
+export class AuthOptionsComponent {
   constructor(private router: Router) {}
 
   renderSignupForm(): void {

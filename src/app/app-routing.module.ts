@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './presentation/shared/landing/landing.component';
 import { AuthComponent } from './presentation/auth/auth.component';
 
 const routes: Routes = [
@@ -33,8 +32,9 @@ const routes: Routes = [
     path: 'cartama',
     loadChildren: () => import('./presentation/cartama/cartama.module').then(m => m.CartamaModule),
   },
+  { path: 'home', loadChildren: () => import('./presentation/home/home.module').then(m => m.HomeModule) },
   // { path: 'platzi', loadChildren: () => import('./presentation/platzi/platzi.module').then(m => m.PlatziModule) },
-  { path: '**', component: LandingComponent },
+  { path: '**', component: AuthComponent },
 ];
 
 @NgModule({

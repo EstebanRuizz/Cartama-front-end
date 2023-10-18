@@ -16,7 +16,6 @@ import {
   templateUrl: './singn-in.component.html',
   styleUrls: ['./singn-in.component.css'],
 })
-
 export class SingnInComponent implements OnInit {
   constructor(
     private router: Router,
@@ -26,18 +25,18 @@ export class SingnInComponent implements OnInit {
 
   errorMessage: string | null = null;
   signInForm!: FormGroup;
-  
+
   private initForm(): void {
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
-  
+
   ngOnInit(): void {
     this.initForm();
   }
-  
+
   onSubmit(): void {
     this.errorMessage = null;
     const callbacks: HttpMediatorCallbacks<IListTokenDTO> = {
@@ -52,11 +51,12 @@ export class SingnInComponent implements OnInit {
     };
     this.httpMediator.execWithPayload(params);
   }
-  
+
   private setToken(tokenObject: IListTokenDTO): void {
-    sessionStorage.setItem('jwtToken', tokenObject.data.jwToken);
+    sessionStorage.setItem('jwtToken', tokenObject.data.jwToken);    
+    this.router.navigate(['home', 'publications'])
   }
-  
+
   private getAuthenticateDTO(): ICreateTokenDTO {
     return {
       email: this.signInForm.get('email')?.value || '',
@@ -66,10 +66,6 @@ export class SingnInComponent implements OnInit {
 
   private handleError(error: string): void {
     console.log(error);
-  }
-
-  renderLanding(): void {
-    this.router.navigate(['landing']);
   }
 
   renderResetPassword(): void {
