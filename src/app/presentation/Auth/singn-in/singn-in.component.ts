@@ -53,8 +53,8 @@ export class SingnInComponent implements OnInit {
   }
 
   private setToken(tokenObject: IListTokenDTO): void {
-    sessionStorage.setItem('jwtToken', tokenObject.data.jwToken);    
-    this.router.navigate(['home', 'publications'])
+    sessionStorage.setItem('jwtToken', tokenObject.data.jwToken);
+    this.router.navigate(['home', 'publications']);
   }
 
   private getAuthenticateDTO(): ICreateTokenDTO {

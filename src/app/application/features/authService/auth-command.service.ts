@@ -11,7 +11,7 @@ import { IListTokenDTO } from '../../DTO/auth/IListTokenDTO';
 export class AuthCommandService {
   constructor(private httpClient: HttpClient) {}
 
-  authenticate(request: ICreateTokenDTO): Observable<IListTokenDTO> {
-    return this.httpClient.post<IListTokenDTO>(EndPoints.AUTHENTICATE, request);
+  authenticate(credentials: ICreateTokenDTO): Observable<IListTokenDTO> {
+    return this.httpClient.post<IListTokenDTO>(EndPoints.AUTHENTICATE, credentials);
   }
 }
